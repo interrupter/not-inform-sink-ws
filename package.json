@@ -1,0 +1,45 @@
+{
+	"name": "not-inform-sink-ws",
+	"version": "0.0.1",
+	"description": "not-* family info sink via WebSocket (not-ws) in not- environment",
+	"main": "index.js",
+	"scripts": {
+		"test": "./node_modules/.bin/mocha --reporter spec",
+		"pretest": "./node_modules/.bin/eslint ./src/**/**",
+		"lint": "./node_modules/.bin/eslint ./src/**/**",
+		"docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
+		"cover": "istanbul cover _mocha $(find ./test -name \"*.js\" -not -path \"./node_modules/*\")"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/interrupter/not-inform-sink-ws.git"
+	},
+	"keywords": [
+		"not-framework",
+		"not-node",
+		"inform",
+		"sink",
+		"ws"
+	],
+	"author": "interrupter <alex.repin@mail.ru> (http://github.com/interrupter)",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/interrupter/not-inform-sink-ws/issues"
+	},
+	"homepage": "https://github.com/interrupter/not-inform-sink-ws#readme",
+	"dependencies": {
+		"not-config": "*",
+		"not-inform": "*",
+		"not-path": "*"
+	},
+	"devDependencies": {
+		"chai": "*",
+		"chai-as-promised": "*",
+		"eslint": "*",
+		"ink-docstrap": "^1.3.2",
+		"istanbul": "*",
+		"jsdoc": "^3.6.4",
+		"mocha": "*",
+		"not-inform-rule-tag": "*"
+	}
+}
