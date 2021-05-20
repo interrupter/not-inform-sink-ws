@@ -15,30 +15,15 @@ try{
 
 		deploy(message, rule){
 			try{
-				let Notification = notNode.Application.getLogic('Notification');
-				if(rule && rule.getData()){
-					options = Object.assign(options, rule.getData());
-				}
-				let	text = hb.compile(options.templates.text),
-						title = hb.compile(options.templates.subject),
-						notifyOptions = {
-							ownerId: message.ownerId,
-							ownerModel: message.ownerModel,
-							title: 		title(message), 		// Subject line
-							text: 		text(message)
-						};
-				Notification.notify(notifyOptions)
-					.then((res)=>{
-						if(res.status === 'ok'){
-							let {_id, title, owner, ownerModel} = res.result;
-							log.log(`notify deployed: "${title}" to ${ownerModel}:${owner} with _id#${_id} `);
-						}else{
-							log.error(res);
+				if(message._id && this.options.eventName){
+					const server = notNode.Application.WSServer();
+					if(server){
+						const client = server.getClient({_id: message._id});
+						if(client){
+							client.sendMessage('event', this.options.eventName, message);
 						}
-					})
-					.catch((e)=>{
-						log.error(e);
-					});
+					}
+				}
 			}catch(e){
 				log.error(e);
 			}
