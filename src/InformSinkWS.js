@@ -13,22 +13,30 @@ try{
 			return this;
 		}
 
-		deploy(message, rule){
+		async deploy(message, rule){
 			try{
-				if(message._id && this.options.eventName){
-					const server = notNode.Application.WSServer();
-					if(server){
-						const client = server.getClient({_id: message._id});
-						if(client){
-							client.sendMessage('event', this.options.eventName, message);
-						}
-					}
+				if(this.options.eventName){
+					await this.deployCycle(message, rule);
 				}
 			}catch(e){
 				log.error(e);
 			}
 		}
+
+		async deployOne({message, recipient,  index, recipientsFilter, rule}){
+			const server = notNode.Application.WSServer();
+			if(server && recipient._id){
+				const client = server.getClient({_id: recipient._id});
+				if(client){
+					client.sendMessage('event', this.options.eventName, message);
+				}
+			}
+		}
 	}
+
+
+
+
 	module.exports = InformSinkWS;
 }catch(e){
 	log.error(e);
