@@ -28,14 +28,11 @@ try{
 			if(server && recipient._id){
 				const client = server.getClient({_id: recipient._id});
 				if(client){
-					client.sendMessage('event', this.options.eventName, message);
+					client.send('event', this.options.eventName, message);
 				}
 			}
 		}
 	}
-
-
-
 
 	module.exports = InformSinkWS;
 }catch(e){
