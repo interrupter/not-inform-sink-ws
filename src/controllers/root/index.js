@@ -1,7 +1,7 @@
-let manifest = {
+import UIInformSinkWSSettings from "./ui.settings.svelte";
 
-};
+const uis = { UIInformSinkWSSettings };
 
-export {
-	manifest
-};
+let manifest = {};
+
+export { manifest, uis };
