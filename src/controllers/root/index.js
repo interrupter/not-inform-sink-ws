@@ -1,6 +1,6 @@
-import UIInformSinkWSSettings from "./ui.settings.svelte";
+import UIInformSinkWsSettings from "./ui.settings.svelte";
 
-const uis = { UIInformSinkWSSettings };
+const uis = { UIInformSinkWsSettings };
 
 let manifest = {};
 
