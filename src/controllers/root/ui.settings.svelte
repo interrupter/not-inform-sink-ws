@@ -1,7 +1,13 @@
 <script>
-    export let value = false;
-    export let readonly;
-    export let disabled;
+    /**
+     * @typedef {Object} Props
+     * @property {boolean} [value]
+     * @property {any} readonly
+     * @property {any} disabled
+     */
+
+    /** @type {Props} */
+    let { value = $bindable(false), readonly, disabled } = $props();
 </script>
 
 {#if value}

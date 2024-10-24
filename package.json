@@ -1,6 +1,6 @@
 {
 	"name": "not-inform-sink-ws",
-	"version": "0.0.10",
+	"version": "0.1.0",
 	"description": "not-* family info sink via WebSocket (not-ws) in not- environment",
 	"main": "index.js",
 	"scripts": {
